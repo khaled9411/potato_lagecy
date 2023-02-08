@@ -8,9 +8,16 @@ public class movingBetweenTwoObjects : MonoBehaviour
     int index = 0;
     public float speed;
     [HideInInspector] public  float currentSpeed;
+    public bool partical = false;
+    public float[] angles;
+    public Vector3[] particalAngle;
+
+    
+
     // Start is called before the first frame update
     void Start()
     {
+        
         targets = new Transform[transform.parent.childCount - 1];
         for (int i = 0 ; i < transform.parent.childCount-1 ; i++)
         {
@@ -26,7 +33,15 @@ public class movingBetweenTwoObjects : MonoBehaviour
         if (Vector3.Distance(transform.position, targets[index].position) <= .2f)
         {
             index = (index + 1) % targets.Length;
+            if (partical)
+            {
+
+                transform.GetChild(1).rotation = Quaternion.Euler(particalAngle[index]);
+                
+            }
         }
+        if (partical)
+            transform.rotation =Quaternion.RotateTowards(transform.rotation, Quaternion.Euler(angles[index], transform.eulerAngles.y, transform.eulerAngles.z), 30*Time.deltaTime);
     }
 
     private void OnCollisionEnter(Collision collision)

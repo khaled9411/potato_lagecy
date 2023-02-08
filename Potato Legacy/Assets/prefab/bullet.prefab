@@ -66,6 +66,7 @@ MonoBehaviour:
   speed: 20
   soundmanager: {fileID: 0}
   die: {fileID: 8300000, guid: 9d9ecd41223ee2c4a8b64da4802aa8c1, type: 3}
+  particale: {fileID: 168542, guid: 5702e2a6fea804b45b49b70d8feaf7ae, type: 3}
 --- !u!65 &4011185613005968359
 BoxCollider:
   m_ObjectHideFlags: 0

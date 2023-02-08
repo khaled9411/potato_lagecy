@@ -48,5 +48,9 @@ public class Collectable : MonoBehaviour
         {
             gameObject.GetComponent<healthe>().Damage(1);
         }
+        if (collision.gameObject.tag == "win")
+        {
+            uiSystem.u.showlevelpanel(3);
+        }
     }
 }

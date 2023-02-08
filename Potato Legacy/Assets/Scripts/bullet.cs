@@ -8,6 +8,7 @@ public class bullet : MonoBehaviour
     Rigidbody rb;
     public soundmanager soundmanager;
     public AudioClip die;
+    public GameObject particale;
     // Start is called before the first frame update
     void Start()
     {
@@ -27,6 +28,7 @@ public class bullet : MonoBehaviour
             other.gameObject.GetComponent<tomato>().health--;
            if(other.gameObject.GetComponent<tomato>().health<= 0)
             {
+                Instantiate(particale, other.transform.position, Quaternion.identity);
                 Destroy(other.gameObject);
                 soundmanager.playSound(die);
             }

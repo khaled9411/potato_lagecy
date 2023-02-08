@@ -164,12 +164,17 @@ public class feat : MonoBehaviour
         if (other.gameObject.tag == "canfire")
         {
             canfire = true;
+            uiSystem.u.showlevelpanel(0);
         }
         if (other.gameObject.tag == "canhide")
+        {
             canhide = true;
+            uiSystem.u.showlevelpanel(1);
+        }
         if(other.gameObject.tag == "cansheild")
         {
             cansheild = true;
+            uiSystem.u.showlevelpanel(2);
         }
     }
 
