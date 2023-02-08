@@ -12,10 +12,12 @@ public class tomato : MonoBehaviour
     [HideInInspector] public float currentSpeed;
     private Rigidbody Rigidbody;
     public int health = 3;
+    float random;
 
     // Start is called before the first frame update
     void Start()
     {
+        random=Random.Range(4, 8);
         Rigidbody = GetComponent<Rigidbody>();
         targets = new Transform[transform.parent.childCount - 1];
         for (int i = 0; i < transform.parent.childCount - 1; i++)
@@ -28,13 +30,16 @@ public class tomato : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Rigidbody.velocity = new Vector3(0, Rigidbody.velocity.y, transform.position.normalized.z - targets[index].position.normalized.z>0?-1*speed:1*speed);  
-        if (Vector3.Distance(transform.position, targets[index].position) <= 2)
+        Rigidbody.velocity = new Vector3(0, Rigidbody.velocity.y, -(transform.position - targets[index].position).normalized.z *speed );  
+        if (Vector3.Distance(transform.position, targets[index].position) <= 0.5f)
         {
-            index = (index + 1) % targets.Length;
+            index = (index + 1);
+            if (index == targets.Length) index = 0;
+
         }
-        if (Time.time - now >= Random.Range(4, 10))
+        if (Time.time - now >= random)
         {
+            random = Random.Range(4, 8);
             now = Time.time;
             Rigidbody.AddForce(0, jumpforce, 0);
         }

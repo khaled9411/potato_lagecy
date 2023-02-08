@@ -23,7 +23,7 @@ public class movingBetweenTwoObjects : MonoBehaviour
    void FixedUpdate()
     {
         transform.position = Vector3.MoveTowards(transform.position, targets[index].position, currentSpeed*Time.deltaTime);
-        if (Vector3.Distance(transform.position, targets[index].position) <= 2)
+        if (Vector3.Distance(transform.position, targets[index].position) <= .2f)
         {
             index = (index + 1) % targets.Length;
         }
