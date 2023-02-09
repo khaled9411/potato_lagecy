@@ -62,8 +62,8 @@ public class movingBetweenTwoObjects : MonoBehaviour
         Debug.Log("exit");
         if (collision.gameObject.CompareTag("Player"))
         {
-            if(!collision.gameObject.GetComponent<feat>().isHide)
-                collision.transform.SetParent(null);
+
+            collision.transform.SetParent(null);
         }
     }
 

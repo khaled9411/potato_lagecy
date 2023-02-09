@@ -21,7 +21,7 @@ public class bullet : MonoBehaviour
     {
         if (other.gameObject.tag == "Player")
         {
-            other.gameObject.GetComponent<healthe>().Damage(1); 
+            other.gameObject.GetComponentInParent<healthe>().Damage(1); 
         }
         if(other.gameObject.tag == "tomato")
         {

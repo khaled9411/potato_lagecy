@@ -43,11 +43,11 @@ public class uiSystem : MonoBehaviour
         panel.SetActive(true);
         if (index != 0)
         {
-            panel.transform.GetChild(0).GetChild(1).gameObject.SetActive(true);
+            panel.transform.GetChild(1).gameObject.SetActive(true);
             for (int i = 1; i <= index; i++) 
             {
                 Animator.SetBool(parapmetares[i-1], true);
-                panel.transform.GetChild(0).GetChild(i + 1).gameObject.SetActive(true);
+                panel.transform.GetChild(i + 1).gameObject.SetActive(true);
                 
             }
         }else if (index == 3)

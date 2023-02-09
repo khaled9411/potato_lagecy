@@ -49,7 +49,7 @@ public class movement : MonoBehaviour
 
     public bool IsGrounded()
     {
-        return Physics.CheckSphere(GroundCheck.position, 0.2f, Ground);
+        return Physics.CheckSphere(GroundCheck.position, 0.4f, Ground);
 
     }
 }

@@ -30,7 +30,6 @@ public class feat : MonoBehaviour
     public bool canfire;
     public bool canhide;
     bool isGrounded;
-    bool shieldIsturnOn;
 
     public MeshCollider MeshCollider;
     Vector3 currntPos;
@@ -48,7 +47,6 @@ public class feat : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         movement = GetComponent<movement>();
 
-        shieldIsturnOn = false;
         ; soundmanager = FindObjectOfType<soundmanager>();
 
     }
@@ -66,7 +64,6 @@ public class feat : MonoBehaviour
         }else if (Input.GetKeyDown(KeyCode.C))
         {
            healthe.canDamage = false;
-            shieldIsturnOn=true;
            StartCoroutine(sheild());
         }else if (Input.GetKeyDown(KeyCode.V))
         {
@@ -80,7 +77,9 @@ public class feat : MonoBehaviour
 
         }else if (Input.GetKey(KeyCode.V))
         {
-            Hide();
+            if(canhide)
+                Hide();
+
         }else if (Input.GetKeyUp(KeyCode.V))
         {
             StopHide();
@@ -120,14 +119,13 @@ public class feat : MonoBehaviour
     {
         currentshield.transform.localScale = currentshield.transform.localScale + Vector3.one * Time.deltaTime * 30;
         yield return new WaitForSeconds(timeToDestroyShield);
-        shieldIsturnOn = false;
 
     }
 
     void Hide()
     {
 
-        if(Collectable.amont >= hideCost && canhide && isGrounded)
+        if(Collectable.amont >= hideCost && isGrounded)
         {
             isHide= true;
             Collectable.amont -= hideCost * Time.deltaTime;
