@@ -11,6 +11,7 @@ public class Collectable : MonoBehaviour
     public soundmanager soundmanager;
     public AudioClip collect;
     public AudioClip chickpoint;
+
     // Start is called before the first frame update
     void Start()
     {

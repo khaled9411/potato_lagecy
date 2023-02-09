@@ -63,7 +63,7 @@ public class feat : MonoBehaviour
             shoot(firePointX);
         }else if (Input.GetKeyDown(KeyCode.C))
         {
-           healthe.canDamage = false;
+           
            StartCoroutine(sheild());
         }else if (Input.GetKeyDown(KeyCode.V))
         {
@@ -104,6 +104,7 @@ public class feat : MonoBehaviour
     {
         if(Collectable.amont >= sheildCost & cansheild)
         {
+            healthe.canDamage = false;
             currentshield = Instantiate(sheildprefabe, transform.position, Quaternion.identity,transform.GetChild(0));
             Collectable.amont -= sheildCost;
             yield return new WaitForSeconds(timeToDestroyShield);

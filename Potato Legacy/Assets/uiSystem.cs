@@ -50,7 +50,8 @@ public class uiSystem : MonoBehaviour
                 panel.transform.GetChild(i + 1).gameObject.SetActive(true);
                 
             }
-        }else if (index == 3)
+        }
+        if (index == 3)
         {
             win = true;
             Debug.Log("win");
