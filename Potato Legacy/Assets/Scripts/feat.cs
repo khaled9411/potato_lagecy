@@ -37,6 +37,9 @@ public class feat : MonoBehaviour
     Vector3 HidePos;
     public AudioClip fire;
 
+    [HideInInspector]
+    public bool isHide;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -126,6 +129,7 @@ public class feat : MonoBehaviour
 
         if(Collectable.amont >= hideCost && canhide && isGrounded)
         {
+            isHide= true;
             Collectable.amont -= hideCost * Time.deltaTime;
             MeshCollider.enabled = false;
             rb.isKinematic = true;
@@ -145,6 +149,8 @@ public class feat : MonoBehaviour
 
     void StopHide()
     {
+
+        isHide = false;
         transform.position = Vector3.MoveTowards(transform.position, currntPos, Time.deltaTime);
 
         

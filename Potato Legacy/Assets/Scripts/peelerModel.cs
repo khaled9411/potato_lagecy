@@ -18,7 +18,7 @@ public class peelerModel : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Ground1"))
+        if (collision.gameObject.CompareTag("Ground1") || collision.gameObject.CompareTag("carrot"))
         {
             StartCoroutine(ResetPeeler());
         }
