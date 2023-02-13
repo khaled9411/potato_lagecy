@@ -871,9 +871,9 @@ MonoBehaviour:
     shoot    X & Z
 
     hide      
-    C
+    V
 
-    shield    V'
+    shield    C'
 --- !u!222 &1257579137
 CanvasRenderer:
   m_ObjectHideFlags: 0
